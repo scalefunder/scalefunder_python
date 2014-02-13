@@ -7,9 +7,25 @@ The ScaleFunder python client handles the notification of a successful transacti
 
 With every post to the payment page, ScaleFunder will pass along the ping_url and the redirect_url. The ping url is the url to post the successful transaction to, and the redirect url is the thank-you page url.  
 
-> Minimum Variables ScaleFunder will post to payment page. The names of these variables can be changed if your system has exisiting immutable conventions.
-> * Stuff
-> * Stuff
+ Minimum Variables ScaleFunder will post to payment page. The names of these variables can be changed if your system has exisiting immutable conventions.
+ * amount 
+ * donation_id
+ * ping_url
+ * thankyou_url
+
+Other variables will also be passed if desired:
+ * Project Name
+ * Perk Selected
+ * Perk Fair Market Value
+ * Donor First Name
+ * Donor Last Name
+ * Donor Email Address
+
+
+The main purpose of this module however is to notify ScaleFunder of a successful transaction, and that involves the variables referenced in the code example below.  
+In addition to the named properties you may also wish to store certain data in ScaleFunder along with the transaction. For example, in addition to a transaction reference number,
+you may want to store a human readable message from the payment provider, or a result code. In order to do that, simply add that parameter to the ScaleFunder notify object before passing it along.
+See the code example below:
 
 
 ```python
@@ -29,6 +45,10 @@ With every post to the payment page, ScaleFunder will pass along the ping_url an
 
     #donation_id is ScaleFunder's unique transaction id for this transaction. It is passed in on the initial post.
     oNotify.donation_id = "52fc2dbe2cce540a992480b7"
+
+    #Add optional data to store with transaction.
+    oNotify.add_param("response_text","Successful")
+    oNotify.add_param("response_code",1)
 
     dResponse =  oNotify.notify()
 ```

@@ -95,7 +95,9 @@ def main():
     oNotify.amount = "25"
     oNotify.trans_ref = "ADEFDED"
     oNotify.ping_url = "https://ucla.adowds.sfunder-dev.com/pmt/mp"
-    oNotify.donation_id = "52fc2dbe2cce540a992480b7"
+    oNotify.donation_id = "52fd0a0e2cce540a992480b9"
+    oNotify.add_param("response_text","Success")
+    oNotify.add_param("response_code",1)
     dResponse =  oNotify.notify()
     print "%s" % dResponse
 
