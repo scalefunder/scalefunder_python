@@ -1,5 +1,5 @@
-scalefunder_python
-==================
+ScaleFunder Python Client
+=========================
 
 ScaleFunder Python Client
 
@@ -7,8 +7,9 @@ The ScaleFunder python client handles the notification of a successful transacti
 
 With every post to the payment page, ScaleFunder will pass along the ping_url and the redirect_url. The ping url is the url to post the successful transaction to, and the redirect url is the thank-you page url.  
 
-Minimum Variables ScaleFunder will post to payment page. The names of these variables can be changed if your system has exisiting immutable conventions.
-
+> Minimum Variables ScaleFunder will post to payment page. The names of these variables can be changed if your system has exisiting immutable conventions.
+> * Stuff
+> * Stuff
 
 
 ```python
