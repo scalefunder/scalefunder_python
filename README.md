@@ -1,7 +1,8 @@
 ScaleFunder Python Client
 =========================
 
-The ScaleFunder python client handles the notification of a successful transaction to the Scalefunder system.Upon clearing the payment, the developer is responsible for posting the successful transaction to the scalefunder website and then redirecting the user to the provided ScaleFunder thank-you page URL.  
+The ScaleFunder python client handles the notification of a successful transaction to the Scalefunder system. It digitally signs key parameters and then transmits the transaction to ScaleFunder. 
+Upon clearing the payment, the developer is responsible for posting the successful transaction to the scalefunder website and then redirecting the user to the provided ScaleFunder thank-you page URL.  
 
 With every post to the payment page, ScaleFunder will pass along the ping_url and the redirect_url. The ping url is the url to post the successful transaction to, and the redirect url is the thank-you page url.  
 
