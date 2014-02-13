@@ -32,7 +32,7 @@ See the code example below:
 
 ```python
     oNotify = ScaleFunderNotify()
-
+    dPost = get_post_params()
     #This the app secret generated in the scalefunder platform
     oNotify.app_secret ="996a68d3af3b22411664ea14af4e418f4e021204a514b68242db5e902d94d4ff" 
 
@@ -43,7 +43,7 @@ See the code example below:
     oNotify.trans_ref = "ADEFDED"
 
     #The ping url is passed to your page on the initial post. That URL should be used here.
-    oNotify.ping_url = "https://ucla.adowds.sfunder-dev.com/pmt/mp"
+    oNotify.ping_url = dPost.get("ping_url")
 
     #donation_id is ScaleFunder's unique transaction id for this transaction. It is passed in on the initial post.
     oNotify.donation_id = "52fc2dbe2cce540a992480b7"
@@ -53,4 +53,8 @@ See the code example below:
     oNotify.add_param("response_code",1)
 
     dResponse =  oNotify.notify()
+
+    #Redirect user to ScaleFunder thankyou_page. Your method of issuing an HTTP redirect will vary depending on your framework.
+    redirect(dPost.get("thankyou_url"))
+
 ```
