@@ -5,13 +5,15 @@ The ScaleFunder python client handles the notification of a successful transacti
 
 With every post to the payment page, ScaleFunder will pass along the ping_url and the redirect_url. The ping url is the url to post the successful transaction to, and the redirect url is the thank-you page url.  
 
- Minimum Variables ScaleFunder will post to payment page. The names of these variables can be changed if your system has exisiting immutable conventions.
+ Here is a list of the minimum variable set ScaleFunder  will post to payment page. The names of these variables can be changed if your system has exisiting immutable conventions.
  * Amount (amount) 
  * Donation ID (donation_id)
  * Ping URL (ping_url)
  * Thank-you URL (thankyou_url)
 
 Other variables will also be passed if desired:
+ * Project Fund ID
+ * Project Appeal ID
  * Project Name 
  * Perk Name Selected 
  * Perk Code Selected
