@@ -29,6 +29,8 @@ In addition to the named properties you may also wish to store certain data in S
 you may want to store a human readable message from the payment provider, or a result code. In order to do that, simply add that parameter to the ScaleFunder notify object before passing it along.
 See the code example below:
 
+Please Note: Do not call notify unless the transaction is successful. ScaleFunder assumes that errors in transaction processing are handled by the client.
+
 
 ```python
     oNotify = ScaleFunderNotify()
@@ -39,7 +41,7 @@ See the code example below:
     #The amount of the transaction 
     oNotify.amount = "25"
 
-    #The transaction reference ID that uniquely identifies this transaction. 
+    #The transaction reference ID that uniquely identifies this transaction. This can be from your payment provider or custom system.
     oNotify.trans_ref = "ADEFDED"
 
     #The ping url is passed to your page on the initial post. That URL should be used here.

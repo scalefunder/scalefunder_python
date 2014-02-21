@@ -77,6 +77,8 @@ class ScaleFunderNotify(object):
         dParams["sf_amount"] = self.amount
         sSig = oHmac.request_sig(dParams,self.app_secret)
         dParams["sf_sig"] = sSig
+        if self.trans_ref:
+            dParams["service_ref"] = self.trans_ref
         sCurlString = urllib.urlencode(dParams)
         try:
             req = urllib2.Request(self.ping_url , sCurlString)
@@ -96,7 +98,7 @@ def main():
     oNotify.amount = "25"
     oNotify.trans_ref = "ADEFDED"
     oNotify.ping_url = "https://ucla.adowds.sfunder-dev.com/pmt/mp"
-    oNotify.donation_id = "52fd0a0e2cce540a992480b9"
+    oNotify.donation_id = "5307ac7a2cce5446f2bcf7dc"
     oNotify.add_param("response_text","Success")
     oNotify.add_param("response_code",1)
     dResponse =  oNotify.notify()
